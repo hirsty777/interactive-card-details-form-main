@@ -18,11 +18,27 @@ html,body{
     font-size: 18px;
 }
 
+input{
+    padding: 10px;
+    border: 1px solid hsla(0, 0%, 0%, 0.582);
+    border-radius: 7px;
+}
+input:active{
+    border: 1px solid ;
+}
+
+/*repeatable code*/
+.inputs-flexbox{
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+}
+
 /* custom styles*/
 body{
   
     width: 100%;
-    height: 100%;
+    min-height: 100%;
     background-color: red;
     display: grid;
     grid-template-columns: 35% 65%;
@@ -38,20 +54,61 @@ body{
 }
 .card-front{
     position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     width: 450px;
     height:250px;
-    top: 150px;
+    top: 10vh;
     left: 30%;
     background-image: url(images/bg-card-front.png);
     background-size: cover; 
     background-repeat: no-repeat;
     border-radius: 10px;
+    color: var(--white);
 }
+.circles{
+    display: flex;
+    flex-direction: row;
+}
+.fisrst-circle{
+    width: 60px;
+    height: 60px;
+    margin-left: 30px;
+    border-radius: 50%;
+    background-color: var(--white);
+}
+.secend-circle{
+    width: 20px;
+    height: 20px;
+    margin-left: 30px;
+    border-radius: 50%;
+    border: 1px solid var(--white);
+    transform: translate(0%,90%);
+}
+.display-card-number{
+    margin-left: 30px;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+}
+.display-card-name-date{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+}
+.display-card-name{
+    margin-left: 30px;
+}
+.display-card-date{
+    margin-right: 30px;
+}
+
+/*card back side*/
 .card-back{
     position: absolute;
     width: 450px;
     height:250px;
-    top: 450px;
+    top: calc(15vh + 250px);
     left: 45%;
     background-image: url(images/bg-card-back.png);
     background-size: cover; 
@@ -67,8 +124,46 @@ body{
 }
 
 .inputs-box{
-    width: 60%;
+    width: 35%;
     height: 100vh;
     margin-left: 35%;
-    background-color: brown;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    row-gap: 15px;
+}
+
+/*expention date inputs*/
+.card-date{
+    display: flex;
+    flex-direction: row;
+    column-gap: 15px;
+}
+
+.exp-date-inputs{
+    width:50%;
+    display: grid;
+    grid-template-columns:30% 40%;
+    white-space: nowrap;
+    column-gap: 10px;
+}
+.exp-date-inputs label{
+    grid-column: 1/3;
+}
+.exp-date-mesage{
+    grid-column: 1/3;
+}
+.cvc-input{
+    width:45%;
+}
+
+
+/*confirm button*/
+#confirm-btn{
+    padding: 15px;
+    background-color: var(--dark-violet);
+    color: var(--white);
+    outline: none;
+    border: none;
+    border-radius: 5px;
 }
