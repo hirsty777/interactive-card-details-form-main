@@ -10,7 +10,7 @@
     --dark-violet:hsl(278, 68%, 11%);
 }
 
-html,body{
+html,body,*{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -26,6 +26,15 @@ input{
 input:active{
     border: 1px solid ;
 }
+/*hide arrows on input[type=numebr]*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number]{
+    -moz-appearance: textfield;
+}
 
 /*repeatable code*/
 .inputs-flexbox{
@@ -36,7 +45,6 @@ input:active{
 
 /* custom styles*/
 body{
-  
     width: 100%;
     min-height: 100%;
     background-color: red;
@@ -115,7 +123,12 @@ body{
     background-repeat: no-repeat;
     border-radius: 10px;
 }
-
+.display-cvc{
+    color: var(--light-g-v);
+    letter-spacing: 2px;
+    margin-left: 82%;
+    margin-top: 25%;
+}
 
 /*second box (right side)*/
 .box-2{
@@ -143,7 +156,7 @@ body{
 .exp-date-inputs{
     width:50%;
     display: grid;
-    grid-template-columns:30% 40%;
+    grid-template-columns:45% 50%;
     white-space: nowrap;
     column-gap: 10px;
 }
@@ -157,13 +170,56 @@ body{
     width:45%;
 }
 
-
 /*confirm button*/
 #confirm-btn{
+    cursor: pointer;
     padding: 15px;
     background-color: var(--dark-violet);
     color: var(--white);
     outline: none;
     border: none;
     border-radius: 5px;
+}
+
+/*complete state message design*/
+.complete-state-message{
+    width: 35%;
+    height: 100vh;
+    margin-left: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 15px;
+}
+.complete-icon{
+    width: 70px;
+    height: 70px;
+    background-image: url(images/icon-complete.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.complete-state-message div:nth-child(2){
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+}
+.complete-state-message div:nth-child(3){
+    color:var(--dark-g-v);
+}
+#continue-btn{
+    cursor: pointer;
+    width: 100%;
+    padding: 15px;
+    background-color: var(--dark-violet);
+    color: var(--white);
+    outline: none;
+    border: none;
+    border-radius: 5px;
+}
+
+
+
+/*display none property(must be last it will be added/removed)*/
+.hide{
+    display: none;
 }
