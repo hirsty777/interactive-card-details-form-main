@@ -9,6 +9,11 @@ const nameDisplay = document.querySelector('.display-card-name');
 const numberDisplay = document.querySelector('.display-card-number');
 const dateDisplay = document.querySelector('.display-card-date');
 const cvcDispaly = document.querySelector('.display-cvc');
+//validation text
+const nameValidationText = document.getElementById('name-validate-text');
+const numberValidationText = document.getElementById('number-validate-text');
+const expDateValidationText = document.getElementById('exp-validate-mm-yy');
+const cvcValidationTxt = document.getElementById('cvc-validate-text');
 //buttons
 const confirmBtn = document.getElementById('confirm-btn');
 const continueBtn = document.getElementById('continue-btn');
@@ -21,8 +26,7 @@ cardName.addEventListener('keyup',()=>{
 
 //card number input 
 cardNumber.addEventListener('keyup',()=>{
-    numberDisplay.textContent = addSpacing(cardNumber.value);
-    
+    numberDisplay.textContent = addSpacing(cardNumber.value);   
 });
 
 //card exp date inputs and cvc
@@ -68,16 +72,87 @@ function addSpacing(number) {
 }
 
 
-//buttons actions
+//===================================================
+//buttons (actions)
 const inputsBox = document.querySelector('.inputs-box');
 const completeBox = document.querySelector('.complete-state-message');
-
+//validation state variables
+let nameValidationState = false;
+let numberValidationState = false;
+let expMValidationState = false;
+let expYValidationState = false;
+let cvcValidationState = false;
+// confirm button actions 
 confirmBtn.addEventListener('click',()=>{
-    inputsBox.classList.add('hide');
-    completeBox.classList.remove('hide');
+    //validate input values before moving on
+    validateCardName(cardName.value);
+    validateCardNumber(cardNumber.value);
+    validateCardExpM(expDateM.value);
+    validateCardExpY(expDateY.value);
+    validateCardCvc(cvc.value);
+    //move on to confirm page if all inputs valid
+    if(nameValidationState&&numberValidationState&&
+       expMValidationState&&expYValidationState&&cvcValidationState){
+        inputsBox.classList.add('hide');
+        completeBox.classList.remove('hide');
+    }else{
+        return 
+    }
 });
+//continue button  
 continueBtn.addEventListener('click',()=>{
-    completeBox.classList.add('hide');
-    inputsBox.classList.remove('hide');
+    location.reload();
 });
 
+
+//validation functions//////////////////////////
+//name validation =================
+function validateCardName(value){
+    let NamePattern = /^[a-zA-Z\s]+$/;
+    let NamePatternRes = NamePattern.test(value);
+    if(NamePatternRes&&value.length>=2){
+        nameValidationText.classList.add('hide');
+        nameValidationState = true;
+    }else{
+        nameValidationText.classList.remove('hide');
+        nameValidationState = false;
+    }
+};
+
+//number validation  =============
+function validateCardNumber(value){
+    if(!isNaN(value)&&value.length==16){
+        numberValidationText.classList.add('hide');
+        numberValidationState = true;
+    }else{
+        numberValidationText.classList.remove('hide');
+        numberValidationState = false;
+    }
+};
+
+//expire Month validation ========
+function validateCardExpM(value){
+    if(!isNaN(value)&&value.length==2){
+        expMValidationState = true;
+    }else{
+        expDateValidationText.classList.remove('hide');
+        expMValidationState = false;
+    }
+};
+//expire Year validation ========
+function validateCardExpY(value){
+    if(!isNaN(value)&&value.length==2){
+        expYValidationState = true;
+    }else{
+        expYValidationState = false;
+    }
+};
+//cvc validation =====
+function validateCardCvc(value){
+    if(!isNaN(value)&&value.length==3){
+        cvcValidationState = true;
+    }else{
+        cvcValidationTxt.classList.remove('hide');
+        cvcValidationState = false;
+    }
+}

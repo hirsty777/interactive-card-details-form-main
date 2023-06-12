@@ -26,6 +26,10 @@ input{
 input:active{
     border: 1px solid ;
 }
+/*i use span elemnts on validation text only so i use global style*/
+span{
+    color: var(--red);
+}
 /*hide arrows on input[type=numebr]*/
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -35,13 +39,14 @@ input::-webkit-inner-spin-button {
 input[type=number]{
     -moz-appearance: textfield;
 }
-
 /*repeatable code*/
 .inputs-flexbox{
     display: flex;
     flex-direction: column;
     row-gap: 5px;
 }
+
+
 
 /* custom styles*/
 body{
