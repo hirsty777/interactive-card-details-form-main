@@ -111,9 +111,11 @@ function validateCardName(value){
     let NamePattern = /^[a-zA-Z\s]+$/;
     let NamePatternRes = NamePattern.test(value);
     if(NamePatternRes&&value.length>=2){
+        cardName.style.borderColor = 'rgba(35, 180, 35, 0.616)';
         nameValidationText.classList.add('hide');
         nameValidationState = true;
     }else{
+        cardName.style.borderColor = 'red';
         nameValidationText.classList.remove('hide');
         nameValidationState = false;
     }
@@ -122,9 +124,11 @@ function validateCardName(value){
 //number validation  =============
 function validateCardNumber(value){
     if(!isNaN(value)&&value.length==16){
+        cardNumber.style.borderColor = 'rgba(35, 180, 35, 0.616)';
         numberValidationText.classList.add('hide');
         numberValidationState = true;
     }else{
+        cardNumber.style.borderColor = 'red';
         numberValidationText.classList.remove('hide');
         numberValidationState = false;
     }
@@ -133,8 +137,10 @@ function validateCardNumber(value){
 //expire Month validation ========
 function validateCardExpM(value){
     if(!isNaN(value)&&value.length==2){
+        expDateM.style.borderColor = 'rgba(35, 180, 35, 0.616)';
         expMValidationState = true;
     }else{
+        expDateM.style.borderColor = 'red';
         expDateValidationText.classList.remove('hide');
         expMValidationState = false;
     }
@@ -142,16 +148,21 @@ function validateCardExpM(value){
 //expire Year validation ========
 function validateCardExpY(value){
     if(!isNaN(value)&&value.length==2){
+        expDateY.style.borderColor = 'rgba(35, 180, 35, 0.616)';
         expYValidationState = true;
     }else{
+        expDateY.style.borderColor = 'red';
         expYValidationState = false;
     }
 };
 //cvc validation =====
 function validateCardCvc(value){
     if(!isNaN(value)&&value.length==3){
+        cvc.style.borderColor = 'rgba(35, 180, 35, 0.616)';
+        expYValidationState = true;
         cvcValidationState = true;
     }else{
+        cvc.style.borderColor = 'red';
         cvcValidationTxt.classList.remove('hide');
         cvcValidationState = false;
     }

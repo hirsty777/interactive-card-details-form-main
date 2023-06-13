@@ -20,11 +20,12 @@ html,body,*{
 
 input{
     padding: 10px;
-    border: 1px solid hsla(0, 0%, 0%, 0.582);
+    border: 1px solid rgba(0, 0, 0, 0.473);
     border-radius: 7px;
+    outline: none;
 }
-input:active{
-    border: 1px solid ;
+input[type=text]:focus{
+    border: 1px solid hsl(249, 99%, 64%);
 }
 /*i use span elemnts on validation text only so i use global style*/
 span{
