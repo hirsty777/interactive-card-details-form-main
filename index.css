@@ -53,7 +53,7 @@ input[type=number]{
 body{
     width: 100%;
     min-height: 100%;
-    background-color: red;
+    background-color: rgb(255, 255, 255);
     display: grid;
     grid-template-columns: 35% 65%;
 }
@@ -289,7 +289,7 @@ body{
     .box-2{
         height:auto;
     }
-    .inputs-box{
+    .inputs-box,.complete-state-message{
         width: 400px;
         height: auto;
         margin: 0 auto;
@@ -327,7 +327,7 @@ body{
     }
 }
 @media (max-width:450px){
-    .inputs-box{
+    .inputs-box,.complete-state-message{
         margin-top: 100px;
         width:340px;
     }
